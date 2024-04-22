@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Hotel.Models.Room>
+
+@{
+    ViewData["Title"] = "Стаи";
+}
+@section TitleSection {
+                 <a class="navbar-brand">Стаи</a>
+}
+<div class="text-left">
+         <a asp-action="Create" asp-controller="Room">
+             <button type="submit" class="btn btn-info btn-fill btn-wd" style="margin-bottom: 15px;"> 
+                 <i class="ti-plus"></i>
+                 Създай нова стая</button> 
+         </a>
+</div>
+<div class="card">
+        <div class="header">
+             <h4 class="title">Стаи</h4>
+             <p class="category">Информация за всички стаи</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+        <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col" style="text-align: center">
+                        @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
+             <th scope="col" style="text-align: center">
+                        @Html.DisplayNameFor(model => model.Floor.Level)
+            </th>
+            <th scope="col" style="text-align: center">
+                        @Html.DisplayNameFor(model => model.RoomType.Title)
+            </th>
+            <th scope="col" style="text-align: center">
+                         Цена за вечер
+            </th>
+            <th scope="col" style="text-align: center;">
+                         Действия
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+                @foreach (var room in Model)
+                {
+            <tr>
+
+                    <td style="text-align: center">
+                            @room.RoomNumber    
+                    </td>
+                         <td style="text-align: center">
+                            @room.Floor.Level    
+                        </td>
+                    <td style="text-align: center">
+                            @room.RoomType.Title
+                    </td>
+
+                         <td style="text-align: center">
+                            @room.RoomType.Price BGN
+                        </td>
+
+                    <td style="display: flex; justify-content: center;">
+                                            <a onclick="confirmDelete(@room.Id, '/Room/Delete/')" style= "margin-right: 5px;">
+                                    <button type="submit" class="btn btn-danger   btn-fill btn-wd"> 
+                                        <i class="ti-trash" style="margin-right: 8px"></i>Изтрий
+                                    </button>
+                                </a>
+                        </td>
+            </tr>
+                }
+    </tbody>
+</table>
+</div>
+</div>

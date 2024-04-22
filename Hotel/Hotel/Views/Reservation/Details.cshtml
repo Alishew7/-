@@ -1,0 +1,167 @@
+﻿@model Hotel.Models.Reservation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@section TitleSection {
+                     <a class="navbar-brand">Информация</a>
+}
+<div style="
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+">
+    <hr />
+    <dl class="dl-horizontal">
+       <div class="card" style="padding:35px">
+           <h4 class="title">
+               Клиент
+           </h4>
+            <dt>
+                @Html.DisplayNameFor(model => model.Client.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Client.Name)  @Html.DisplayFor(model => model.Client.SurName)  @Html.DisplayFor(model => model.Client.Last_Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Client.Personal_id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Client.Personal_id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Client.Email_of_client)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Client.Email_of_client)
+            </dd>
+
+                        <dt>
+                @Html.DisplayNameFor(model => model.Client.Phone_number)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Client.Phone_number)
+            </dd>
+       </div>
+
+       <div class="card" style="padding:35px">
+           <h4 class="title">
+               Стая
+           </h4>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Room.RoomNumber)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Room.RoomNumber)  
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Room.Floor.Level)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Room.Floor.Level)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Room.RoomType.Title) (@Html.DisplayNameFor(model => model.Room.RoomType.Price))
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Room.RoomType.Title) (@Html.DisplayFor(model => model.Room.RoomType.Price)BGN) 
+            </dd>   
+       </div>
+
+              <div class="card" style="padding:35px">
+           <h4 class="title">
+               Резервация
+           </h4>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReservationStatus.Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ReservationStatus.Title)  
+                @switch(Model.ReservationStatus.Id)
+                {
+                    case 1:
+                        <i class="fa fa-circle text-warning"></i>
+                        break;
+                    case 2:
+                        <i class="fa fa-circle text-success"></i>
+                        break;
+                    case 3:
+                        <i class="fa fa-circle text-info"></i>
+                        break;
+                    case 4:
+                        <i class="fa fa-circle text-danger"></i>
+                        break;
+
+                }
+               
+            </dd>
+
+            <dt>
+                 @Html.DisplayNameFor(model => model.RservationStart)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RservationStart)
+            </dd>
+
+             <dt>
+                 @Html.DisplayNameFor(model => model.RservationEnd)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RservationEnd)
+            </dd>
+
+               <dt>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TotalPrice) BGN
+            </dd>
+       </div>
+
+
+       <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-success text-center">
+                                            <i class="ti-wallet"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p> @Html.DisplayNameFor(model => model.TotalPrice)</p>
+                                            @Html.DisplayFor(model => model.TotalPrice) BGN
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-calendar"></i>  @Html.DisplayFor(model => model.ReservationStatus.Title)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+    </dl>
+</div>
+<div style="    display: flex;
+    justify-content: center;">
+   <a asp-action="Edit" asp-controller="Reservation" asp-route-id="@Model.Id" style="margin-right: 5px;">
+                            <button type="submit" class="btn btn-success  btn-fill btn-wd"> 
+                            <i class="ti-pencil" style="margin-right:8px"></i>Редактиране
+                            </button>
+                        </a>
+                        <a asp-action="Index" asp-controller="Reservation"  style="margin-right: 5px;">
+                            <button type="submit" class="btn btn-warning  btn-fill btn-wd"> 
+                            <i class="ti-menu" style="margin-right:8px"></i>Връщане към списъка
+                            </button>
+  </a>
+</div>

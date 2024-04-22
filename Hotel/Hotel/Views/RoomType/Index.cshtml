@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Hotel.Models.RoomType>
+
+@{
+    ViewData["Title"] = "Room types";
+}
+@section TitleSection {
+             <a class="navbar-brand">Видове стаи</a>
+}
+<div class="text-left">
+         <a asp-action="Create" asp-controller="RoomType">
+             <button type="submit" class="btn btn-info btn-fill btn-wd" style="margin-bottom: 15px;"> 
+                 <i class="ti-plus"></i>
+                 Създай нов вид стая</button> 
+         </a>
+</div>
+<div class="card">
+        <div class="header">
+             <h4 class="title">Вид стая</h4>
+             <p class="category">Информация за всички видове стаи</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+        <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col" style="text-align: center">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th scope="col" style="text-align: center">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th scope="col" style="text-align: center">
+                @Html.DisplayNameFor(model => model.Number_of_beds)
+            </th>
+            <th scope="col" style="text-align: center">
+                Има ли тераса
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th scope="col" style="text-align: center;">
+                Действия
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var roomType in Model) {
+        <tr>
+                <td style="text-align: center">
+                    @roomType.Title
+            </td>
+                <td style="text-align: center">
+                    @roomType.Description
+            </td>
+                <td style="text-align: center">
+                    @roomType.Number_of_beds
+            </td>
+                <td style="text-align: center">
+                    @roomType.Does_it_have_balcony
+            </td>
+                <td style="text-align: center">
+                    @roomType.Price
+            </td>
+                <td style="display: flex; justify-content: center;">
+
+                            <a asp-action="Edit" asp-controller="RoomType" asp-route-id="@roomType.Id" style= "margin-right: 5px;">
+                                <button type="submit" class="btn btn-success  btn-fill btn-wd"> 
+                                    <i class="ti-pencil" style="margin-right:8px"></i>Редактиране
+                                </button>
+                            </a>
+                            <a onclick="confirmDelete(@roomType.Id, '/RoomType/Delete/')" style= "margin-right: 5px;">
+                                <button type="submit" class="btn btn-danger   btn-fill btn-wd"> 
+                                    <i class="ti-trash" style="margin-right: 8px"></i>Изтрий
+                                </button>
+                            </a>
+                    </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>

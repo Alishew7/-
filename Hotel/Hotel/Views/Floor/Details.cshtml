@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Hotel.Models.View_Models.FloorRoomVM>
+@{
+    ViewData["Title"] = "Floor Details";
+    int FloorLvl = ViewBag.FloorLvl;
+}
+
+@section TitleSection {
+       <a class="navbar-brand">Level @FloorLvl</a>
+}
+
+
+
+<div style="display:flex; flex-wrap: wrap;">
+@foreach (var item in Model) {
+             <div class="card" 
+                    onmouseover="showInfo(this)"
+                    onmouseout="hideInfo(this)"
+                     style=" max-height: 200px;
+                         text-align: center;
+                         background-color: @(item.Status == "Free" ? "Green" 
+                         : item.Status == "Paid" ? "Red" 
+                         : item.Status == "Finished" || item.Status == "Canceled" ? "Blue"
+                         : "Yellow" );
+                         padding:5%;
+                         margin: 2%;">
+                     <div id="roomInfo" style="display: none">
+                        <p style="font-weight:bold"> @item.Room.RoomType.Title</p>
+                        <p style="font-weight:bold"> @item.Room.RoomType.Price BGN/ per night</p>
+                        <p style="font-weight:bold"> Balcony: @item.Room.RoomType.Does_it_have_balcony</p>
+
+                     </div>
+                     <div id="roomNumber">
+                     Room @item.Room.RoomNumber
+                     </div>
+         </div>
+}
+</div>
+
+
+@section Scripts {
+            <script>
+                function showInfo(card){
+                    var roomInfo = card.querySelector("#roomInfo");
+                    var roomNumber = card.querySelector("#roomNumber");
+                    if(roomInfo){
+                        roomInfo.style.display = "block";
+                    }
+                    if(roomNumber){
+                            roomNumber.style.display = "none";
+                    }
+                }
+                function hideInfo(card){
+                    var roomInfo = card.querySelector("#roomInfo");
+                    var roomNumber = card.querySelector("#roomNumber");
+                    if(roomInfo){
+                        roomInfo.style.display = "none";
+                    }
+                    if(roomNumber){
+                            roomNumber.style.display = "block";
+                 }
+                    }
+            </script>
+}

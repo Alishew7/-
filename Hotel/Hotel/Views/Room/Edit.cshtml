@@ -1,0 +1,51 @@
+﻿@model Hotel.Models.View_Models.RoomVM;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<h4 style="text-align: center">Редактиране на стая</h4>
+<div class="row" style="
+        display: flex;
+        align-items: center;
+        flex-direction: column;">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="RoomNumber" class="control-label"></label>
+                <input asp-for="RoomNumber" class="form-control" />
+                <span asp-validation-for="RoomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomTypeId" class="control-label"></label>
+                <select asp-for="RoomTypeId" class="form-control">
+                    @foreach (var roomType in Model.roomTypes)
+                    {
+                        <option value="@roomType.Id">@roomType.Title</option>
+                    }
+                </select>
+                <span asp-validation-for="RoomTypeId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FloorId" class="control-label"></label>
+                <select asp-for="FloorId" class="form-control">
+                    @foreach (var floor in Model.floors)
+                    {
+                        <option value="@floor.Id">@floor.Level</option>
+                    }
+                </select>
+                <span asp-validation-for="FloorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Създай нова стая" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="text-align: center; padding-left: 25%">
+    <a asp-action="Index">Връщане в списъка</a>
+</div>
+

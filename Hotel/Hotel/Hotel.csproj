@@ -1,0 +1,145 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\assets\css\animate.min.css" />
+    <Content Remove="wwwroot\assets\css\bootstrap.min.css" />
+    <Content Remove="wwwroot\assets\css\demo.css" />
+    <Content Remove="wwwroot\assets\css\paper-dashboard.css" />
+    <Content Remove="wwwroot\assets\css\themify-icons.css" />
+    <Content Remove="wwwroot\assets\fonts\themify.eot" />
+    <Content Remove="wwwroot\assets\fonts\themify.svg" />
+    <Content Remove="wwwroot\assets\fonts\themify.ttf" />
+    <Content Remove="wwwroot\assets\fonts\themify.woff" />
+    <Content Remove="wwwroot\assets\img\apple-icon.png" />
+    <Content Remove="wwwroot\assets\img\background.jpg" />
+    <Content Remove="wwwroot\images\faces\face-0.jpg" />
+    <Content Remove="wwwroot\images\faces\face-1.jpg" />
+    <Content Remove="wwwroot\images\faces\face-2.jpg" />
+    <Content Remove="wwwroot\images\faces\face-3.jpg" />
+    <Content Remove="wwwroot\assets\img\favicon.png" />
+    <Content Remove="wwwroot\assets\img\new_logo.png" />
+    <Content Remove="wwwroot\assets\img\tim_80x80.png" />
+    <Content Remove="wwwroot\assets\js\bootstrap-checkbox-radio.js" />
+    <Content Remove="wwwroot\assets\js\bootstrap-notify.js" />
+    <Content Remove="wwwroot\assets\js\bootstrap.min.js" />
+    <Content Remove="wwwroot\assets\js\chartist.min.js" />
+    <Content Remove="wwwroot\assets\js\demo.js" />
+    <Content Remove="wwwroot\assets\js\jquery-1.10.2.js" />
+    <Content Remove="wwwroot\assets\js\paper-dashboard.js" />
+    <Content Remove="wwwroot\assets\sass\paper-dashboard.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_buttons.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_cards.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_chartist.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_icons.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_inputs.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_labels.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_navbars.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_sidebar.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_tabs.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_transparency.scss" />
+    <Content Remove="wwwroot\sass\paper\mixins\_vendor-prefixes.scss" />
+    <Content Remove="wwwroot\sass\paper\_alerts.scss" />
+    <Content Remove="wwwroot\sass\paper\_buttons.scss" />
+    <Content Remove="wwwroot\sass\paper\_cards.scss" />
+    <Content Remove="wwwroot\sass\paper\_chartist.scss" />
+    <Content Remove="wwwroot\sass\paper\_checkbox-radio.scss" />
+    <Content Remove="wwwroot\sass\paper\_dropdown.scss" />
+    <Content Remove="wwwroot\sass\paper\_footers.scss" />
+    <Content Remove="wwwroot\sass\paper\_inputs.scss" />
+    <Content Remove="wwwroot\sass\paper\_misc.scss" />
+    <Content Remove="wwwroot\sass\paper\_mixins.scss" />
+    <Content Remove="wwwroot\sass\paper\_navbars.scss" />
+    <Content Remove="wwwroot\sass\paper\_responsive.scss" />
+    <Content Remove="wwwroot\sass\paper\_sidebar-and-main-panel.scss" />
+    <Content Remove="wwwroot\sass\paper\_tables.scss" />
+    <Content Remove="wwwroot\sass\paper\_typography.scss" />
+    <Content Remove="wwwroot\sass\paper\_variables.scss" />
+    <Content Remove="wwwroot\images\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\animate.min.css" />
+    <None Include="wwwroot\css\bootstrap.min.css" />
+    <None Include="wwwroot\css\demo.css" />
+    <None Include="wwwroot\css\paper-dashboard.css" />
+    <None Include="wwwroot\css\themify-icons.css" />
+    <None Include="wwwroot\fonts\themify.eot" />
+    <None Include="wwwroot\fonts\themify.svg" />
+    <None Include="wwwroot\fonts\themify.ttf" />
+    <None Include="wwwroot\fonts\themify.woff" />
+    <None Include="wwwroot\images\apple-icon.png" />
+    <None Include="wwwroot\images\background.jpg" />
+    <None Include="wwwroot\images\faces\face-0.jpg" />
+    <None Include="wwwroot\images\faces\face-1.jpg" />
+    <None Include="wwwroot\images\faces\face-2.jpg" />
+    <None Include="wwwroot\images\faces\face-3.jpg" />
+    <None Include="wwwroot\images\favicon.png" />
+    <None Include="wwwroot\images\HomeButton.jpg" />
+    <None Include="wwwroot\images\new_logo.png" />
+    <None Include="wwwroot\images\tim_80x80.png" />
+    <None Include="wwwroot\js\bootstrap-checkbox-radio.js" />
+    <None Include="wwwroot\js\bootstrap-notify.js" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\chartist.min.js" />
+    <None Include="wwwroot\js\demo.js" />
+    <None Include="wwwroot\js\jquery-1.10.2.js" />
+    <None Include="wwwroot\js\paper-dashboard.js" />
+    <None Include="wwwroot\sass\paper-dashboard.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_buttons.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_cards.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_chartist.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_icons.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_inputs.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_labels.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_navbars.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_sidebar.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_tabs.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_transparency.scss" />
+    <None Include="wwwroot\sass\paper\mixins\_vendor-prefixes.scss" />
+    <None Include="wwwroot\sass\paper\_alerts.scss" />
+    <None Include="wwwroot\sass\paper\_buttons.scss" />
+    <None Include="wwwroot\sass\paper\_cards.scss" />
+    <None Include="wwwroot\sass\paper\_chartist.scss" />
+    <None Include="wwwroot\sass\paper\_checkbox-radio.scss" />
+    <None Include="wwwroot\sass\paper\_dropdown.scss" />
+    <None Include="wwwroot\sass\paper\_footers.scss" />
+    <None Include="wwwroot\sass\paper\_inputs.scss" />
+    <None Include="wwwroot\sass\paper\_misc.scss" />
+    <None Include="wwwroot\sass\paper\_mixins.scss" />
+    <None Include="wwwroot\sass\paper\_navbars.scss" />
+    <None Include="wwwroot\sass\paper\_responsive.scss" />
+    <None Include="wwwroot\sass\paper\_sidebar-and-main-panel.scss" />
+    <None Include="wwwroot\sass\paper\_tables.scss" />
+    <None Include="wwwroot\sass\paper\_typography.scss" />
+    <None Include="wwwroot\sass\paper\_variables.scss" />
+    <None Include="wwwroot\images\Logo.png" />
+    <None Include="wwwroot\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Core.Tools" Version="1.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\assets\css\" />
+    <Folder Include="wwwroot\assets\fonts\" />
+    <Folder Include="wwwroot\assets\img\" />
+    <Folder Include="wwwroot\assets\js\" />
+    <Folder Include="wwwroot\assets\sass\" />
+  </ItemGroup>
+
+</Project>

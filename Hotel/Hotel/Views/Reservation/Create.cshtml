@@ -1,0 +1,137 @@
+﻿@model Hotel.Models.View_Models.ReservationVM
+
+@{
+    ViewData["Title"] = "Create";
+    var value = this.ViewContext.HttpContext.Session.GetString("loggedUser");
+    User loggedUser = null;
+    if (value != null)
+    {
+        loggedUser = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(value);
+    }
+}
+<h4 style="text-align: center; padding-bottom: 15px;" >Създай нова резервация</h4>
+<div class="row" style="
+    display: flex;
+    justify-content: space-between;">
+    <div class="col-md-4">
+       <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                   <div class="form-group">
+                <label asp-for="Client_id" class="control-label"></label>
+                 <select asp-for="Client_id" class="form-control">
+                    @foreach (var client in Model.Clients)
+                    {
+                                <option value="@client.Id">@client.Personal_id</option>
+                    }
+                </select>
+                <span asp-validation-for="Client_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Room_id" class="control-label"></label>
+                   <select asp-for="Room_id" class="form-control">
+                    @foreach (var room in Model.Rooms)
+                    {
+                             <option value="@room.Id" data-price="@room.RoomType.Price">
+                                 @room.RoomNumber (@room.RoomType.Title), @room.RoomType.Price BGN 
+                             </option>
+                    }
+                    </select>
+                <span asp-validation-for="Room_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RservationStart" class="control-label"></label>
+                <input asp-for="RservationStart" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"/>
+                <span asp-validation-for="RservationStart" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="RservationEnd" class="control-label"></label>
+                <input asp-for="RservationEnd" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"/>
+                <span asp-validation-for="RservationEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="statusId" class="control-label"></label>
+                   <select asp-for="statusId" class="form-control">
+                    @foreach (var status in Model.Statuses)
+                    {
+                           <option value="@status.Id">
+                            @status.Title  
+                            </option>
+                    }
+                    </select>
+                <span asp-validation-for="statusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPrice" class="control-label"></label>
+                @if (loggedUser.UserName == "Admin")
+                {
+                    <input asp-for="TotalPrice" class="form-control"/>
+                }else
+                {
+                    <input asp-for="TotalPrice" class="form-control" readonly/>
+                }
+                <span asp-validation-for="TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Създай резервация" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="text-align: center; padding-left: 25%">
+    <a asp-action="Index">Връщане в списъка</a>
+</div>
+
+@section Scripts {
+        <script>
+            $(document).ready(function () {
+                                        console.log("V funkciqta: ");
+
+                var selectedRoomPrice;
+
+                $("#Room_id").change(function () {
+                    updateRoomPrice.call(this);
+                });
+
+                function updateRoomPrice() {
+                    var selectedOption = $(this).find(':selected');
+                    console.log("Selected Option HTML: " + selectedOption[0].outerHTML);
+
+                    selectedRoomPrice = parseFloat(selectedOption.data('price'));
+                    console.log("Selected Room Price: " + selectedRoomPrice);
+                    updateTotalPrice();
+                }
+
+                // Event handlers for the change event of ReservationStart and ReservationEnd inputs
+                
+                $("#RservationStart, #RservationEnd").change(function () {
+                    console.log("I'm in date change.");
+                    updateTotalPrice();
+                });
+
+                // Function to update TotalPrice based on the selected room's price and reservation duration
+                function updateTotalPrice() {
+                    var start = new Date($("#RservationStart").val());
+                    var end = new Date($("#RservationEnd").val());
+                    var numberOfDays = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+
+                    if (isNaN(selectedRoomPrice) || selectedRoomPrice === 0) {
+                        updateRoomPrice.call($("#Room_id")[0]); // Pass the DOM element directly
+                    }
+
+                    console.log("start: " + start);
+                    console.log("end: " + end);
+                    console.log("Number of days: " + numberOfDays);
+                    var totalPrice = 0;
+
+                        if (numberOfDays >= 1) {
+                           totalPrice = numberOfDays * selectedRoomPrice;
+                           var formattedPrice = totalPrice.toFixed(2).replace(".", ",");
+                           $("#TotalPrice").val(formattedPrice);
+                        }
+
+                    console.log("TotalPrice: " + totalPrice);
+                }
+            });
+        </script>
+}

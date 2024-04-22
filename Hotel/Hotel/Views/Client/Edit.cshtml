@@ -1,0 +1,62 @@
+﻿@model Hotel.Models.Client
+@{
+    ViewData["Title"] = "Редактирай информацията за клиента";
+}
+<h4 style="text-align: center; padding-bottom: 15px">Редактирай информацията за клиента</h4>
+<div class="row" style="
+    display: flex;
+    justify-content: space-between;">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" style="margin: 8px" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurName" style="margin: 8px" class="control-label"></label>
+                <input asp-for="SurName" class="form-control" />
+                <span asp-validation-for="SurName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Last_Name" style="margin: 8px" class="control-label"></label>
+                <input asp-for="Last_Name" class="form-control" />
+                <span asp-validation-for="Last_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personal_id" style="margin: 8px" class="control-label"></label>
+                <input asp-for="Personal_id" class="form-control" />
+                <span asp-validation-for="Personal_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone_number" style="margin: 8px" class="control-label"></label>
+                <input asp-for="Phone_number" class="form-control" />
+                <span asp-validation-for="Phone_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email_of_client" style="margin: 8px" class="control-label"></label>
+                <input asp-for="Email_of_client" class="form-control" />
+                <span asp-validation-for="Email_of_client" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="Gender" style="margin: 8px" class="control-label"></label>
+                <select asp-for="Gender" class="form-control"> 
+                    @foreach (var gender in Enum.GetValues(typeof(UserGender)))
+                    {
+                             <option value="@gender">@gender.ToString().ToUpper()</option>
+                    }
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Запазване на промените" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="text-align: center; padding-left: 25%">
+    <a asp-action="Index">Връщане към списъка</a>
+</div>

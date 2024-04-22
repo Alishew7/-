@@ -1,0 +1,48 @@
+﻿@model Hotel.Models.Client
+
+@{
+    ViewData["Title"] = "Детайли за клиента";
+}
+
+@section TitleSection {
+                             <a class="navbar-brand">Детайли за клиента</a>
+}
+
+<div style="
+    display: flex;
+    align-items: center;
+    flex-direction: column;">
+<div class="card card-user">
+                            <div class="image">
+                                <img src="~/images/background.jpg" alt="...">
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                  <img class="avatar border-white" src="https://i.pravatar.cc/300" alt="User">
+                                  <h4 class="title">@Model.Name @Model.SurName @Model.Last_Name<br>
+                                     <a href="mailto:@Model.Email_of_client"><small>@Model.Email_of_client</small></a>
+                                  </h4> 
+                                </div>
+                                <p class="description text-center">
+                                    ЕГН: @Model.Personal_id <br>
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-1">
+                                        
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5><a style="margin-left: -150px;" href="tel:@Model.Phone_number">@Model.Phone_number</a>
+                                            <br>
+                                            <small style="margin-left: -150px;">Телефонен номер</small>
+                                            </h5>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h5>759,99 BGN<br><small>Похарчени</small></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>

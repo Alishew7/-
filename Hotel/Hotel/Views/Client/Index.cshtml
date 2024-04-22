@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Hotel.Models.Client>
+@{
+	ViewData["Title"] = "Клиенти";
+}
+@section TitleSection {
+			 <a class="navbar-brand">Клиенти</a>
+}
+<div class="text-left">
+		 <a asp-action="Create" asp-controller="Client">
+			 <button type="submit" class="btn btn-info btn-fill btn-wd" style="margin-bottom: 15px;"> 
+				 <i class="ti-plus"></i>
+				Създай нов клиент</button>
+
+		 </a>
+</div>
+ <div class="card">
+		<div class="header">
+			 <h4 class="title">Клиенти</h4>
+			 <p class="category">Информация за всички клиенти</p>
+		</div>
+		<div class="content table-responsive table-full-width">
+		<table class="table table-striped">
+		<thead>
+		<tr>
+			<th scope="col" style="text-align: center">
+						@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th scope="col" style="text-align: center">
+						@Html.DisplayNameFor(model => model.Last_Name)
+			</th>
+			<th scope="col" style="text-align: center">
+						@Html.DisplayNameFor(model => model.Personal_id)
+			</th>
+			<th scope="col" style="text-align: center">
+						@Html.DisplayNameFor(model => model.Phone_number)
+			</th>
+			<th scope="col" style="text-align: center;">
+				Действия
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+				@foreach (var client in Model)
+				{
+				<tr>
+					<td style="text-align: center">
+							@client.Name
+				</td>
+					<td style="text-align: center">
+							@client.Last_Name
+				</td>
+					<td style="text-align: center">
+							@client.Personal_id
+				</td>
+					<td style="text-align: center">
+							@client.Phone_number
+				</td>
+
+
+				<td style="display: flex; justify-content: center;">
+					<a asp-action="Details" asp-controller="Client" asp-route-id="@client.Id" style="margin-right: 5px;">
+						<button type="submit" class="btn btn-info  btn-fill btn-wd"> 
+							<i class="ti-menu" style="margin-right:8px"></i>Клиент
+						</button>
+					</a>
+						<a asp-action="Edit" asp-controller="Client" asp-route-id="@client.Id" style= "margin-right: 5px;">
+							<button type="submit" class="btn btn-success  btn-fill btn-wd"> 
+								<i class="ti-pencil" style="margin-right:8px"></i>Редактиране
+							</button>
+						</a>
+								<a onclick="confirmDelete(@client.Id, '/Client/Delete/')" style= "margin-right: 5px;">
+							<button type="submit" class="btn btn-danger   btn-fill btn-wd"> 
+								<i class="ti-trash" style="margin-right: 8px"></i>Изтрий
+							</button>
+						</a>
+				</td>
+				</tr>
+				}
+	</tbody>
+</table>
+</div>
+</div>

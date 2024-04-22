@@ -1,0 +1,44 @@
+﻿@model User
+@{
+	ViewData["Title"] = "Home Page";
+}
+@section TitleSection {
+	<a class="navbar-brand">Вход</a>
+}
+<div class="container-fluid" 
+	style="display: flex;
+    justify-content: space-between;">
+<div class="card" style="padding:30px">
+	<div class="content">
+		<span style="color:red">@Html.ValidationMessage("AuthError")</span> 
+		<i class="ti-user" style="display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-around;
+		font-size: 28px;
+		padding: 15px;"></i>
+<form method="post">
+	<div class="row justify-contect-center" 
+	style="display: flex;
+    flex-direction: column;
+	height: 250px">
+			<div class style="padding:6px">
+			<div class="form-group">
+					<label asp-for="UserName" style="padding-left: 7px"> </label>
+					<input asp-for="UserName" type="text" class="form-control border-input" placeholder="Потребителско име" required style="width:250px ">
+					<span asp-validation-for="UserName" style="color:red"></span>
+			</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Password" style="padding-left: 7px"></label>
+					<input asp-for="Password" type="password" class="form-control border-input" placeholder="Парола" required style="width:250px">
+					<span asp-validation-for="Password" style="color:red"></span>
+			</div>
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-info btn-fill btn-wd">Вход</button>
+			</div>
+			</form>
+</div>
+</div>
+</div>
